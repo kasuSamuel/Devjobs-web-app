@@ -1,0 +1,4 @@
+{
+    "git.enabled": true,
+    "git.statusLimit": 1
+}
