@@ -1,20 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainContentComponent } from './main-content/main-content.component';
+import { Routes, RouterModule } from '@angular/router';
+import { DetailsComponent } from './details/details.component';
 
+const appRoutes: Routes = [
+  {
+    path: '', component: MainContentComponent
+  },
+  {
+    path: 'details', component: DetailsComponent
+  } 
+];
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainContentComponent
+    MainContentComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [
     provideClientHydration()

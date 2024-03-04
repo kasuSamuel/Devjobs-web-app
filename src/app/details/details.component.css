@@ -1,0 +1,58 @@
+button {
+    background-color: #5964E0;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 4rem;
+    width: 9.188rem;
+    height: 3.23rem;
+}
+
+button:hover {
+    background-color: #939BF4;
+}
+
+button:focus {
+    outline: none;
+}
+
+.btn {
+    width: 10.6rem;
+    background-color: #C9C9C9;
+    color: #5964E0;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 4rem;
+}
+
+.btn :hover {
+    color: #5964E0;
+}
+
+.btn :focus {
+    outline: none;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -2rem;
+
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}

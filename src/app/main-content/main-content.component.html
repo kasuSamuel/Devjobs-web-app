@@ -1,8 +1,33 @@
 <main>
-    <h1>jeremy kasuson</h1>
-    <h1>jeremy kasuson</h1>
-    <h1>jeremy kasuson</h1>
-    <h1>jeremy kasuson</h1>
-    <h1>jeremy kasuson</h1>
-    <h1>jeremy kasuson</h1>
-</main>
+    <div class="filter">
+        <div class="filter-one">
+            <img src="../assets/desktop/icon-search.svg" alt="search">
+            <input type="text" placeholder="Filter by title, companies, expertise…" />
+        </div>
+        <div class="filter-two">
+            <img src="../assets/desktop/icon-location.svg" alt="location">
+            <input type="text" placeholder="Filter by location..." />
+
+        </div>
+        <div class="filter-three">
+            <input type="checkbox" id="myCheckbox">
+            <p>Full Time Only</p>
+            <button > Search </button>
+        </div>
+    </div>
+    <div class="grid grid-cols-3 gap-x-[1rem] gap-y-[2rem] mt-[3rem] w-[76%]">
+<div *ngFor="let card of displayedCards" class="w-[100%] h-[15rem] bg-[#fff] rounded-[1rem] relative" (click)="onCardClicked(card)" >
+            <div [style.background]="card.logoBackground"
+                class="w-[3.125rem] ml-[3rem] h-[3.125rem] flex justify-center items-center rounded-[1rem] absolute top-[-1.3rem]">
+                <img [src]="card.logo" alt="logo">
+            </div>
+            <div class="w-[17.875rem] h-[9.188rem] ml-[3rem] absolute top-[2rem]">
+                <p class="text-[#6E8098] pt-[.8rem]">{{card.postedAt}} . {{card.contract}}</p>
+                <p class="font-bold text-[1.2rem] pt-[.5rem] pb-[.2rem]">{{card.position}}</p>
+                <p class="text-[#6E8098]">{{card.company}}</p><br>
+                <p class="text-[#5964E0]">{{card.location}}</p>
+            </div>
+        </div>
+    </div>
+    <button *ngIf="data.length > displayedCards.length" (click)="loadMore()" class="mt-[2rem]">Load More</button>
+</main> 
