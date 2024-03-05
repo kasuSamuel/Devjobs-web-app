@@ -1,23 +1,25 @@
 <main class=" w-full flex flex-col items-center relative top-[calc(-2rem)]">
-<div class="dark:bg-[#19202D] w-[76%] bg-white rounded-xl h-[5rem] flex justify-between">
-    <div class="w-[40%] flex items-center pl-1 ml-4 border-r border-gray-400">
-        <img src="../assets/desktop/icon-search.svg" alt="search">
+<div class="dark:bg-[#19202D] w-[76%] bg-white rounded-xl h-[5rem] flex flex-col md:flex-row justify-between">
+    <div class="md:w-[40%] w-full flex items-center pl-1 ml-4 border-b  md:border-r border-gray-400 md:border-0">
+        <img src="../assets/desktop/icon-search.svg" alt="search" class="md:pr-2">
         <input type="text" [(ngModel)]="filterTitle" placeholder="Filter by title, companies, expertise…"
             class="w-full outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D]">
-    </div>
-    <div class="w-[30%] flex items-center pl-2 mr-33 border-r border-gray-400 mr-4">
-        <img src="../assets/desktop/icon-location.svg" alt="location">
-        <input [(ngModel)]="filterLocation" class="w-65 outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D]"
+        </div>
+
+    <div class="hidden md:flex md:w-[30%] w-full flex items-center pl-2 border-b md:border-r border-gray-400 md:border-0 md:pl-2 md:mr-33">
+        <img src="../assets/desktop/icon-location.svg" alt="location" class="md:pr-2">
+        <input [(ngModel)]="filterLocation" class="w-full outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D]"
             type="text" placeholder="Filter by location..." />
     </div>
-    <div class="w-[30%] flex items-center pl-1 mr-5">
+    <div class="hidden md:flex md:w-[30%] w-full flex items-center pl-1 md:mr-5">
         <input [(ngModel)]="filterFullTime" type="checkbox" id="myCheckbox">
-        <label class="font-bold p-1 w-65 outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D] dark:text-white"
+        <label class="font-bold p-1 w-full outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D] dark:text-white"
             for="myCheckbox">Full Time Only</label>
-            <button (click)="search()" class="bg-[#5964E0] text-white font-bold py-4 px-8 rounded-lg cursor-pointer text-base ml-7 w-36 h-12 focus:outline-none hover:bg-[#939BF4]">Search</button>
+            <button (click)="search()" class="bg-[#5964E0] text-white font-bold py-4 px-8 rounded-lg cursor-pointer text-base ml-7 md:ml-0 mt-2 md:mt-0 md:w-36 h-12 focus:outline-none hover:bg-[#939BF4]">Search</button>
     </div>
-
 </div>
+
+
 
     <div class=" grid lg:grid-cols-3 md:grid-cols-2 gap-x-[1rem] gap-y-[2rem] mt-[3rem] w-[76%]">
 <div *ngFor="let card of filteredCards" class="dark:bg-[#19202D] w-full h-[15rem] bg-[#fff] rounded-[1rem] relative" (click)="onCardClicked(card)">
@@ -27,7 +29,7 @@
             </div>
             <div class="w-[17.875rem] h-[9.188rem] ml-[3rem] absolute top-[2rem]">
                 <p class="text-[#6E8098] pt-[.8rem]">{{card.postedAt}} . {{card.contract}}</p>
-                <p class=" dark:text-white font-bold text-[1.2rem] pt-[.5rem] pb-[.2rem] md:text-[1rem]">{{card.position}}</p>
+                <p class="text-[.9rem] dark:text-white font-bold md:text-[1rem] pt-[.5rem] pb-[.2rem] md:text-[1rem]">{{card.position}}</p>
                 <p class="text-[#6E8098]">{{card.company}}</p><br>
                 <p class="text-[#5964E0]">{{card.location}}</p>
             </div>
