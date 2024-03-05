@@ -1,52 +1,55 @@
-<section *ngIf="selectedJob" class="">
-    <div class="w-[55%] h-[7rem] flex justify-between items-center rounded-[1rem] bg-[#fff] relative">
+<section class="w-full flex flex-col items-center relative top-[calc(-2rem)]" *ngIf="selectedJob">
+    <div class="dark:bg-[#19202D] w-[55%] h-[7rem] flex justify-between items-center rounded-[1rem] bg-[#fff] relative">
         <div [ngStyle]="{ 'background': selectedJob.logoBackground }"
             class="flex justify-center items-center w-[7rem] h-[7rem] rounded-[1rem]">
             <img class="h-[1.3rem]" [src]="selectedJob.logo" alt="logo">
         </div>
         <div class="absolute left-[8rem]">
-            <h2 class="h-[1.3rem] font-bold">{{ selectedJob.company }}</h2>
+            <h2 class="dark:text-white h-[1.3rem] font-bold">{{ selectedJob.company }}</h2>
             <p class="text-[#6E8098]">{{ selectedJob.company }}.com</p>
         </div>
-        <button class="btn absolute right-[4rem] w-[11rem] h-[3.23rem]">Company Site</button>
+<button
+    class=" absolute right-[4rem] w-[11rem] h-[3.23rem] bg-gray-300 text-indigo-600 px-8 py-4 rounded-lg cursor-pointer text-base ml-16 hover:text-indigo-600 focus:outline-none">Company
+    Site</button>
     </div>
-    <div class="rounded-[1rem] bg-[#fff] w-[55%] mt-[2rem] p-[4rem]">
+    <div class="dark:bg-[#19202D] rounded-[1rem] bg-[#fff] w-[55%] mt-[2rem] p-[4rem]">
         <div class="flex justify-between items-center w-full">
             <div>
-                <p class="text-[#6E8098] pt-[.8rem]">{{ selectedJob.postedAt }} . {{ selectedJob.contract }}</p>
-                <p class="font-bold text-[2rem] pt-[.5rem] pb-[.2rem]">{{ selectedJob.position }}</p>
+                <p class="dark:text-[#9DAEC2] text-[#6E8098] pt-[.8rem]">{{ selectedJob.postedAt }} . {{ selectedJob.contract }}</p>
+                <p class="font-bold text-[2rem] pt-[.5rem] pb-[.2rem] dark:text-white">{{ selectedJob.position }}</p>
                 <p class="text-[#5964E0]">{{ selectedJob.location }}</p>
             </div>
-            <button class="btn">Apply Now</button>
+            <button class="  w-[11rem] h-[3.23rem] bg-gray-300 text-indigo-600 px-8 py-4 rounded-lg cursor-pointer text-base ml-16 hover:text-indigo-600 focus:outline-none">Apply Now</button>
         </div>
         <div>
             <br>
             <p class="text-[#6E8098]">{{ selectedJob.description }}</p> <br>
-            <p class="font-bold">Requirements</p><br>
+            <p class="font-bold text-[1.5rem] dark:text-white">Requirements</p><br>
             <p class="text-[#6E8098]">{{ selectedJob.requirements.content }}</p> <br>
-            <ul class="text-[#6E8098]">
+<ul class=" text-[#6E8098] ">
                 <li *ngFor="let item of selectedJob.requirements.items">
-                    <span class="mr-[.3rem]">&#8226;</span> {{ item }}
+                    <span class="mr-[3rem]">&#8226;</span> {{ item }}
                 </li>
             </ul><br>
 
-            <p class="font-bold">What You Will do</p><br>
+            <p class="font-bold text-[1.5rem] dark:text-white">What You Will do</p><br>
             <p class="text-[#6E8098]">{{ selectedJob.role.content }}</p> <br>
-            <ol class="text-[#6E8098]">
-                <li *ngFor="let item of selectedJob.role.items; let i = index">
-                    <span class="mr-">{{ i + 1 }}.</span> {{ item }}
-                </li>
-            </ol>
+<ol class="text-[#5964E0]" >
+    <li *ngFor="let item of selectedJob.role.items; let i = index" class="text-[#6E8098]">
+        <span class="mr-[2rem]">{{ i + 1 }}.</span> {{ item }}
+    </li>
+</ol>
+
             <br>
         </div>
     </div>
 </section>
-<footer *ngIf="selectedJob" class="bg-[#fff]">
+<footer class=" dark:bg-[#19202D] w-full flex flex-col items-center bg-white" *ngIf="selectedJob" >
     <div class="w-[50%] h-[7rem] flex justify-between p-[1rem]">
         <div>
-            <h2 class="font-bold text-[1.3rem]">{{ selectedJob.position }}</h2>
+            <h2 class="dark:text-white font-bold text-[1.3rem]">{{ selectedJob.position }}</h2>
             <p class="text-[#6E8098]">{{ selectedJob.company }}</p>
         </div>
-        <button class="btn">Apply Now</button>
+        <button class="  w-[11rem] h-[3.23rem] bg-gray-300 text-indigo-600 px-8 py-4 rounded-lg cursor-pointer text-base ml-16 hover:text-indigo-600 focus:outline-none">Apply Now</button>
     </div>
 </footer>

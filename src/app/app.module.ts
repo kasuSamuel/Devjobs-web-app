@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { Routes, RouterModule } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
+import { FormsModule } from '@angular/forms'; 
+
 
 const appRoutes: Routes = [
   {
@@ -20,9 +22,10 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     MainContentComponent,
-    DetailsComponent
+    DetailsComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),

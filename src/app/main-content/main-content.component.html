@@ -1,33 +1,38 @@
-<main>
-    <div class="filter">
-        <div class="filter-one">
-            <img src="../assets/desktop/icon-search.svg" alt="search">
-            <input type="text" placeholder="Filter by title, companies, expertise…" />
-        </div>
-        <div class="filter-two">
-            <img src="../assets/desktop/icon-location.svg" alt="location">
-            <input type="text" placeholder="Filter by location..." />
-
-        </div>
-        <div class="filter-three">
-            <input type="checkbox" id="myCheckbox">
-            <p>Full Time Only</p>
-            <button > Search </button>
-        </div>
+<main class=" w-full flex flex-col items-center relative top-[calc(-2rem)]">
+<div class="dark:bg-[#19202D] w-[76%] bg-white rounded-xl h-[5rem] flex justify-between">
+    <div class="w-[40%] flex items-center pl-1 ml-4 border-r border-gray-400">
+        <img src="../assets/desktop/icon-search.svg" alt="search">
+        <input type="text" [(ngModel)]="filterTitle" placeholder="Filter by title, companies, expertise…"
+            class="w-full outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D]">
     </div>
-    <div class="grid grid-cols-3 gap-x-[1rem] gap-y-[2rem] mt-[3rem] w-[76%]">
-<div *ngFor="let card of displayedCards" class="w-[100%] h-[15rem] bg-[#fff] rounded-[1rem] relative" (click)="onCardClicked(card)" >
+    <div class="w-[30%] flex items-center pl-2 mr-33 border-r border-gray-400 mr-4">
+        <img src="../assets/desktop/icon-location.svg" alt="location">
+        <input [(ngModel)]="filterLocation" class="w-65 outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D]"
+            type="text" placeholder="Filter by location..." />
+    </div>
+    <div class="w-[30%] flex items-center pl-1 mr-5">
+        <input [(ngModel)]="filterFullTime" type="checkbox" id="myCheckbox">
+        <label class="font-bold p-1 w-65 outline-none pl-1::placeholder ml-1.5 dark:bg-[#19202D] dark:text-white"
+            for="myCheckbox">Full Time Only</label>
+            <button (click)="search()" class="bg-[#5964E0] text-white font-bold py-4 px-8 rounded-lg cursor-pointer text-base ml-7 w-36 h-12 focus:outline-none hover:bg-[#939BF4]">Search</button>
+    </div>
+
+</div>
+
+    <div class=" grid lg:grid-cols-3 md:grid-cols-2 gap-x-[1rem] gap-y-[2rem] mt-[3rem] w-[76%]">
+<div *ngFor="let card of filteredCards" class="dark:bg-[#19202D] w-full h-[15rem] bg-[#fff] rounded-[1rem] relative" (click)="onCardClicked(card)">
             <div [style.background]="card.logoBackground"
                 class="w-[3.125rem] ml-[3rem] h-[3.125rem] flex justify-center items-center rounded-[1rem] absolute top-[-1.3rem]">
                 <img [src]="card.logo" alt="logo">
             </div>
             <div class="w-[17.875rem] h-[9.188rem] ml-[3rem] absolute top-[2rem]">
                 <p class="text-[#6E8098] pt-[.8rem]">{{card.postedAt}} . {{card.contract}}</p>
-                <p class="font-bold text-[1.2rem] pt-[.5rem] pb-[.2rem]">{{card.position}}</p>
+                <p class=" dark:text-white font-bold text-[1.2rem] pt-[.5rem] pb-[.2rem] md:text-[1rem]">{{card.position}}</p>
                 <p class="text-[#6E8098]">{{card.company}}</p><br>
                 <p class="text-[#5964E0]">{{card.location}}</p>
             </div>
         </div>
     </div>
-    <button *ngIf="data.length > displayedCards.length" (click)="loadMore()" class="mt-[2rem]">Load More</button>
+    <button *ngIf=" showLoadMoreBtn " (click)="loadMore()"  class="bg-[#5964E0] mt-[2rem] text-white font-bold py-4 px-8 rounded-lg cursor-pointer text-base ml-6 w-36 h-12 focus:outline-none
+    hover:bg-[#939BF4]">Load More</button>
 </main> 
